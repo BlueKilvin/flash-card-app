@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlashCard.Data.Models
 {
     public abstract class Card
     {
-        private int _id;
+        private readonly int _id;
         private string? _name;
         private string _question;
         private string _answer;
         private int _delay;
-        
+
+
+        [Key]
         public int ID { get { return _id; } }
+
         public string? Name { get { return _name; } set { _name = value; } }
 
         public string Question

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace FlashCard
 {
@@ -16,8 +18,16 @@ namespace FlashCard
 
             builder.Services.AddMauiBlazorWebView();
 
+            // Add DbContext
+            builder.Services.AddDbContext<Data.Models.FlashCardDbContext>(options =>
+            {
+                options.UseSqlite("Data Source=app.db");
+            });
+
+            builder.Services.AddTransient<DatabaseInitialiser>();
+
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 
