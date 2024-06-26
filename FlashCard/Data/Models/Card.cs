@@ -10,7 +10,7 @@ namespace FlashCard.Data.Models
 {
     public abstract class Card
     {
-        private readonly int _id;
+        private int _id;
         private string? _name;
         private string _question;
         private string _answer;
@@ -18,7 +18,7 @@ namespace FlashCard.Data.Models
 
 
         [Key]
-        public int ID { get { return _id; } }
+        public int ID { get { return _id; } set { _id = value; } }
 
         public string? Name { get { return _name; } set { _name = value; } }
 
