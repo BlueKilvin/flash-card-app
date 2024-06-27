@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FlashCard.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlashCard.Data.Models
+namespace FlashCard.Data.Services
 {
     internal class FlashCardDbContext : DbContext
     {
@@ -27,10 +28,13 @@ namespace FlashCard.Data.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Card>().HasKey(p => p.ID);
+            //modelBuilder.Entity<Card>().HasKey(p => p.ID);
+            modelBuilder.Entity<Card>()
+                .Property(p => p.ID)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<Card>()
                 .HasDiscriminator<string>("Discriminator")
-                .HasValue<GenericCard>("GenericCard");
+                .HasValue<DefaultCard>("DefaultCard");
         }
     }
 }

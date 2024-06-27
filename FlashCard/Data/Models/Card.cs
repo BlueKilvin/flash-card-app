@@ -11,7 +11,6 @@ namespace FlashCard.Data.Models
     public abstract class Card
     {
         private int _id;
-        private string? _name;
         private string _question;
         private string _answer;
         private int _delay;
@@ -19,8 +18,6 @@ namespace FlashCard.Data.Models
 
         [Key]
         public int ID { get { return _id; } set { _id = value; } }
-
-        public string? Name { get { return _name; } set { _name = value; } }
 
         public string Question
         {
@@ -51,13 +48,11 @@ namespace FlashCard.Data.Models
         }
 
         //Constructor
-        public Card(string? name)
+        public Card()
         {
-            _id = 0;
-            _name = name;
             _question = "This is a default question.";
             _answer = "This is a defualt answer.";
-            _delay = 0;
+            _delay = 2;
         }
 
     }

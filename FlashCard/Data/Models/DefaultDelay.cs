@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FlashCard.Data.Models
 {
-    internal class MockModel
+    internal class DefaultDelay : Delay
     {
+     
     }
 }

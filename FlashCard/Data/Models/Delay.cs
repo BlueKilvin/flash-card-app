@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace FlashCard.Data.Models
 {
-    public class GenericCard : Card
+    public abstract class Delay
     {
-        public GenericCard(string? name) : base(name) { }
+        
+    }
 
-        //TODO
+    public enum BaseDelays
+    {
+        VeryEasy = -2,
+        Easy = -1,
+        Normal = 0,
+        Hard = 1,
     }
 }

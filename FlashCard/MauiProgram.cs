@@ -19,7 +19,14 @@ namespace FlashCard
             builder.Services.AddMauiBlazorWebView();
 
             // Add DbContext
+
+/* Unmerged change from project 'FlashCard (net8.0-android)'
+Before:
             builder.Services.AddDbContext<Data.Models.FlashCardDbContext>(options =>
+After:
+            builder.Services.AddDbContext<FlashCardDbContext>(options =>
+*/
+            builder.Services.AddDbContext<Data.Services.FlashCardDbContext>(options =>
             {
                 options.UseSqlite("Data Source=app.db");
             });
