@@ -22,8 +22,7 @@ namespace FlashCard.Data.Models
         public string Question
         {
             get { return _question; }
-            set
-            {
+            set {
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Question field cannot be null or empty.");
                 _question = value;
             }
@@ -32,14 +31,14 @@ namespace FlashCard.Data.Models
         public string Answer
         {
             get { return _answer; }
-            set
-            {
+            set {
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Name cannot be null or empty.");
                 _answer = value;
             }
         }
 
-        public int Delay { 
+        public int Delay 
+        { 
             get { return _delay; } 
             set {
                 if(value < 0 ) throw new ArgumentOutOfRangeException("Delay must be greater than zero");
